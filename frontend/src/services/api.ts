@@ -75,51 +75,51 @@ class ApiService {
 
   // Company Management
   async getCompany(): Promise<Company> {
-    const response: AxiosResponse<Company> = await this.api.get('/company');
+    const response: AxiosResponse<Company> = await this.api.get('/game/company');
     return response.data;
   }
 
   async createCompany(companyData: CreateCompanyRequest): Promise<Company> {
-    const response: AxiosResponse<Company> = await this.api.post('/company', companyData);
+    const response: AxiosResponse<Company> = await this.api.post('/game/company', companyData);
     return response.data;
   }
 
   // Depot Management
   async getDepots(): Promise<Depot[]> {
-    const response: AxiosResponse<Depot[]> = await this.api.get('/depots');
+    const response: AxiosResponse<Depot[]> = await this.api.get('/game/depots');
     return response.data;
   }
 
   async createDepot(depotData: CreateDepotRequest): Promise<Depot> {
-    const response: AxiosResponse<Depot> = await this.api.post('/depots', depotData);
+    const response: AxiosResponse<Depot> = await this.api.post('/game/depots', depotData);
     return response.data;
   }
 
   // Bus Management
   async getBuses(): Promise<Bus[]> {
-    const response: AxiosResponse<Bus[]> = await this.api.get('/buses');
+    const response: AxiosResponse<Bus[]> = await this.api.get('/game/buses');
     return response.data;
   }
 
   async createBus(busData: CreateBusRequest): Promise<Bus> {
-    const response: AxiosResponse<Bus> = await this.api.post('/buses', busData);
+    const response: AxiosResponse<Bus> = await this.api.post('/game/buses', busData);
     return response.data;
   }
 
   // Route Management
   async getRoutes(): Promise<Route[]> {
-    const response: AxiosResponse<Route[]> = await this.api.get('/routes');
+    const response: AxiosResponse<Route[]> = await this.api.get('/game/routes');
     return response.data;
   }
 
   // Trip Management
   async getActiveTrips(): Promise<Trip[]> {
-    const response: AxiosResponse<Trip[]> = await this.api.get('/trips/active');
+    const response: AxiosResponse<Trip[]> = await this.api.get('/game/trips/active');
     return response.data;
   }
 
   async createTrip(tripData: CreateTripRequest): Promise<Trip> {
-    const response: AxiosResponse<Trip> = await this.api.post('/trips', tripData);
+    const response: AxiosResponse<Trip> = await this.api.post('/game/trips', tripData);
     return response.data;
   }
 

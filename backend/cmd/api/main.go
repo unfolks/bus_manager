@@ -37,6 +37,14 @@ func main() {
 	authHandler := handlers.NewAuthHandler(db, redisClient)
 	gameHandler := handlers.NewGameHandler(db, redisClient)
 
+	// Health check endpoint (no auth required)
+	r.GET("/health", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"status":  "healthy",
+			"service": "bus-manager-api",
+		})
+	})
+
 	// API routes
 	api := r.Group("/api")
 	{
@@ -46,6 +54,7 @@ func main() {
 			auth.POST("/register", authHandler.Register)
 			auth.POST("/login", authHandler.Login)
 			auth.POST("/refresh", authHandler.Refresh)
+			auth.POST("/logout", authHandler.Logout)
 		}
 
 		// Game routes (protected)

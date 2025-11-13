@@ -28,8 +28,8 @@ WORKDIR /app
 # Copy the binary from builder stage
 COPY --from=builder /app/main .
 
-# Copy .env file
-COPY --from=builder /app/.env .
+# Note: Environment variables are provided by docker-compose.yml
+# No .env file needed in production Docker container
 
 # Expose port
 EXPOSE 8080
