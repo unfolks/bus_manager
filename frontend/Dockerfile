@@ -9,10 +9,15 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# Copy source code
+# Copy source code and environment files
 COPY . .
 
+# Copy production environment file (for Docker builds)
+# This uses relative paths for API since nginx will proxy requests
+COPY .env.production .env.production.local
+
 # Build the application
+# React will use .env.production.local during build
 RUN npm run build
 
 # Production stage
